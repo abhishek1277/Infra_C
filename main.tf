@@ -1,10 +1,10 @@
 provider "azurerm" {
-  features {}
+  version = "~>2.46.0"
+    features {}
+
 }
 
-//Create an azure Resource Group
 resource "azurerm_resource_group" "xlabsrg" {
-  name     = "r1"
+  name     = "r2"
   location = "East US"
 }
-
