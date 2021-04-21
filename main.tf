@@ -11,7 +11,7 @@ data "terraform_remote_state" "vpc" {
 provider "azurerm" {
   version = "~>2.46.0"
     features {}
-
+  }
 resource "azurerm_resource_group" "xlabsrg" {
   name     = "${var.resourcegroup}"
   location = "${var.location}"
