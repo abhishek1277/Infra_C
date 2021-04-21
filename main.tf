@@ -22,7 +22,6 @@ resource "azurerm_resource_group" "main" {
 
  module "vnet" {
     source              = "Azure/vnet/azurerm"
-    location            = "West Europe"
     resource_group_name = azurerm_resource_group.main.name
     address_space       = ["10.0.0.0/16"]
   }
