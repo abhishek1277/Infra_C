@@ -16,7 +16,7 @@ provider "azurerm" {
 
  
 resource "azurerm_resource_group" "main" {
-  name     = "resources"
+  name     = "my-resources"
   location = "West Europe"
 }
 
