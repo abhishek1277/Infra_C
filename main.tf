@@ -19,7 +19,12 @@ resource "azurerm_resource_group" "example" {
   name     = "my-resources"
   location = "West Europe"
 }
-
+resource "azurerm_virtual_network" "main" {
+  name                = "network"
+  address_space       = ["10.0.0.0/16"]
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+}
 module "vnet" {
   source              = "modules/subnet"
   resource_group_name = azurerm_resource_group.example.name
