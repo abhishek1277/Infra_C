@@ -15,6 +15,6 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "xlabsrg" {
-  name     = "r2"
+  name     = "r3"
   location = "East US"
 }
