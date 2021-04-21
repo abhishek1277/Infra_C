@@ -80,7 +80,7 @@ resource "azurerm_network_interface" "xlabsnic" {
     location = "${azurerm_resource_group.xlabsrg.location}"
     resource_group_name = "${azurerm_resource_group.xlabsrg.name}"
 
-    network_security_group_id = "${azurerm_network_security_group.xlabssecgrp.id}" 
+   
 
     ip_configuration {
         name = "${var.sqlvmipnew-configuration}"
@@ -136,50 +136,4 @@ resource "azurerm_virtual_machine" "xlabsvm" {
   }  
 }
 
-resource "azurerm_virtual_machine_extension" "xlabsextension" {
-  name                 = "SqlIaasExtension"
-  location             = "${azurerm_resource_group.xlabsrg.location}"
-  resource_group_name  = "${azurerm_resource_group.xlabsrg.name}"
-  virtual_machine_name = "${azurerm_virtual_machine.xlabsvm.name}"
-  publisher            = "Microsoft.SqlServer.Management"
-  type                 = "SqlIaaSAgent"
-  type_handler_version = "1.2"
 
-  settings = <<SETTINGS
-  {
-    "AutoTelemetrySettings": {
-      "Region": "West Europe"
-    },
-    "AutoPatchingSettings": {
-      "PatchCategory": "WindowsMandatoryUpdates",
-      "Enable": true,
-      "DayOfWeek": "Sunday",
-      "MaintenanceWindowStartingHour": "2",
-      "MaintenanceWindowDuration": "60"
-    },
-    "KeyVaultCredentialSettings": {
-      "Enable": false,
-      "CredentialName": ""
-    },
-    "ServerConfigurationsManagementSettings": {
-      "SQLConnectivityUpdateSettings": {
-          "ConnectivityType": "Public",
-          "Port": "1433"
-      },
-      "SQLWorkloadTypeUpdateSettings": {
-          "SQLWorkloadType": "GENERAL"
-      },
-      "AdditionalFeaturesServerConfigurations": {
-          "IsRServicesEnabled": "true"
-      } ,
-       "protectedSettings": {
-             
-           }
-           }}
-SETTINGS
-  tags = {
-    terraform = "true"
-    Service = "SQL"
-  }
-
-}
