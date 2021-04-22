@@ -19,5 +19,5 @@ variable "app_service_plan_name" {
 variable "app_service_name" {
     type        = string
     description = "App Service name in Azure"
-    default = "terraform-demo-009"
+    default = "terraform-demo-0099"
 }
