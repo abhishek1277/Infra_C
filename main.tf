@@ -54,7 +54,7 @@ resource "azurerm_app_service" "example" {
 }
 
 resource "azurerm_data_factory" "example" {
-  name                = "example"
+  name                = "exampledatafactory"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
 }
