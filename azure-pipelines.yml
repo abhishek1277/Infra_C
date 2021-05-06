@@ -12,9 +12,8 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
-
-- task: CopyFiles@2
+- task: PublishBuildArtifacts@1
   inputs:
-    SourceFolder: 'Demo'
-    Contents: '**'
-    TargetFolder: '$(build.artifactstagingdirectory)/Terraform'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/Terraform'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
