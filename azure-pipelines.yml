@@ -14,8 +14,6 @@ steps:
   displayName: 'Run a multi-line script'
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'Demo'
-    Contents: '**'
     TargetFolder: '$(build.artifactstagingdirectory)'
 
 - task: PublishBuildArtifacts@1
