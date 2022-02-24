@@ -3,8 +3,9 @@
 pool:
   vmImage: ubuntu-latest
 
-pr:
+trigger:
 - main
+
 
 steps:
 - script: echo Hello, world!
